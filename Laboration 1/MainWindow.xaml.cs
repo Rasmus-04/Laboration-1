@@ -19,6 +19,13 @@ namespace Laboration_1
         public MainWindow()
         {
             InitializeComponent();
+
+            var service = new MedlemService();
+            service.AddMedlem(1, "Adam", "test@mail.com");
+
+            var medlem = service.GetAll()[0];
+
+            MessageBox.Show(medlem.ToString());
         }
     }
 }
