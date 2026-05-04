@@ -8,24 +8,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace Laboration_1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
 
-            var service = new MedlemService();
-            service.AddMedlem(1, "Adam", "test@mail.com");
+            var spel = new Spel(1, "Chess", 2, 2);
 
-            var medlem = service.GetAll()[0];
+            var aktivitet = new Aktivitet(1, "Spelkväll", DateTime.Now, spel);
 
-            MessageBox.Show(medlem.ToString());
+            var medlem = new Medlem(1, "Adam", "test@mail.com");
+
+            aktivitet.AddDeltagare(medlem);
+
+            MessageBox.Show(aktivitet.Spel.ToString());
         }
     }
 }
