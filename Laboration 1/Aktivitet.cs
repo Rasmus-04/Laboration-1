@@ -32,5 +32,10 @@ namespace Laboration_1
         {
             return deltagare;
         }
+
+        public int AntalDeltagare()
+        {
+            return deltagare.Count;
+        }
     }
 }

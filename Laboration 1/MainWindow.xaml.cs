@@ -16,11 +16,11 @@ namespace Laboration_1
         {
             InitializeComponent();
 
-            var spel = new Spel(1, "Chess", 2, 2);
+            Spel spel = new Spel(1, "Chess", 2, 2);
 
-            var aktivitet = new Aktivitet(1, "Spelkväll", DateTime.Now, spel);
+            Aktivitet aktivitet = new Aktivitet(1, "Spelkväll", DateTime.Now, spel);
 
-            var medlem = new Medlem(1, "Adam", "test@mail.com");
+            Medlem medlem = new Medlem(1, "Adam", "test@mail.com");
 
             aktivitet.AddDeltagare(medlem);
 

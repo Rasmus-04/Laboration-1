@@ -34,12 +34,7 @@ namespace Laboration_1
             return $"{Name} ({(IsActive ? "Active" : "Inactive")})";
         }
     }
-}
 
-
-
-namespace Laboration_1
-{
     public class MedlemService
     {
         private List<Medlem> medlemmar = new List<Medlem>();
