@@ -9,7 +9,7 @@ namespace Laboration_1
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
 
-        public Spel(int id, string titel, int minPlayers, int maxPlayers)
+        public Spel(string titel, int maxPlayers, int minPlayers, int id=0)
         {
             Id = id;
             Titel = titel;
