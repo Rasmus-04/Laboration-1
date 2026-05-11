@@ -7,6 +7,7 @@ namespace Laboration_1
 
         private ObservableCollection<Medlem> members = new ObservableCollection<Medlem>();
         private ObservableCollection<Spel> allaSpel = new ObservableCollection<Spel>();
+        private ObservableCollection<Aktivitet> allaAktiviteter = new ObservableCollection<Aktivitet>();
 
         public ObservableCollection<Medlem> Members
         {
@@ -20,33 +21,18 @@ namespace Laboration_1
             set { allaSpel = value; }
         }
 
-        private Medlem selectedMember;
-
-        public Medlem SelectedMember
+        public ObservableCollection<Aktivitet> AllaAktiviteter
         {
-            get { return selectedMember; }
-            set { selectedMember = value; }
+            get { return allaAktiviteter; }
+            set { allaAktiviteter = value; }
         }
+
+        
 
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
-
-            AllaSpel.Add(new Spel("Chess", 2, 2));
-
-            Medlem medlem = new Medlem(1, "Adam", "test@mail.com");
-        }
-
-        private void removeUserBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (selectedMember == null)
-                return;
-            MessageBoxResult result = MessageBox.Show("Är du säker att du vill ta bort denna medlem?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.Yes)
-            {
-                Members.Remove(selectedMember);
-            }
         }
     }
 }

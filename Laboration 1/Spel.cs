@@ -19,7 +19,7 @@ namespace Laboration_1
 
         public override string ToString()
         {
-            return $"{Titel} ({MinPlayers}-{MaxPlayers} players)";
+            return $"{Titel}";
         }
     }
 }

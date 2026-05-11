@@ -22,5 +22,18 @@ namespace Laboration_1.Vy.SpelVy
         {
             InitializeComponent();
         }
+
+        private void btnRemoveGame_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+
+            if (lvSpel.SelectedItem == null)
+                return;
+            MessageBoxResult result = MessageBox.Show("Är du säker att du vill ta bort denna medlem?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                mainWindow.AllaSpel.Remove((Spel)lvSpel.SelectedItem);
+            }
+        }
     }
 }

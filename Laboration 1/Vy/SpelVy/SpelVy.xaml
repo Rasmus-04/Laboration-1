@@ -7,7 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView ItemsSource="{Binding AllaSpel}" Name="lvMembers" SelectionMode="Single" SelectedItem="{Binding SelectedMember}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ListView ItemsSource="{Binding AllaSpel}" Name="lvSpel" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Titel}" Width="75"/>
@@ -16,5 +20,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+            <Button Content="Ta bort Spel" Name="btnRemoveGame" Click="btnRemoveGame_Click"/>
+        </StackPanel>
     </Grid>
 </UserControl>
