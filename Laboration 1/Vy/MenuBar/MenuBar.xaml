@@ -5,11 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Laboration_1.Vy.MenuBar"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="80" d:DesignWidth="300">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <Button Name="AddUser" Content="Ny Medlem" Margin="5" Height="30" Click="AddUser_Click"/>
-            <Button Name="NewSpel" Content="Nytt Spel" Margin="5" Height="30" Click="NewSpel_Click"/>
+            <Button Name="AddUser" Content="Ny Medlem" Margin="5" 
+                    Height="30" Click="AddUser_Click"/>
+            <Button Name="NewSpel" Content="Nytt Spel" Margin="5" 
+                    Height="30" Click="NewSpel_Click"/>
+            <Button Name="NewEvent" Content="Ny Aktivitet" Margin="5" 
+                    Height="30" Click="NewEvent_Click"/>
+            <Button Name="btnTestData" Content="Test Data" Margin="5" 
+                    Height="30" Click="btnTestData_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

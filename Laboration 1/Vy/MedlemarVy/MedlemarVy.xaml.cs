@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Laboration_1.Vy.MedlemarVy
 {
@@ -10,6 +11,19 @@ namespace Laboration_1.Vy.MedlemarVy
         public MedlemarVy()
         {
             InitializeComponent();
+        }
+
+        private void btnRemoveMember_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            
+            if (lvMembers.SelectedItem == null)
+                return;
+            MessageBoxResult result = MessageBox.Show("Är du säker att du vill ta bort denna medlem?", "Confirm Deletion", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                mainWindow.Members.Remove((Medlem)lvMembers.SelectedItem);
+            }
         }
     }
 }
