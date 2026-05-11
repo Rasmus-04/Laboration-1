@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -38,6 +36,9 @@ namespace Laboration_1
         {
             if (deltagare.Contains(medlem))
                 throw new Exception("Medlem redan tillagd");
+
+            if (deltagare.Count >= MaxDeltagare)
+                return;
 
             deltagare.Add(medlem);
 

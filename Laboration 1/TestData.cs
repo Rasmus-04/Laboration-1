@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Security.Policy;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 
 namespace Laboration_1
 {

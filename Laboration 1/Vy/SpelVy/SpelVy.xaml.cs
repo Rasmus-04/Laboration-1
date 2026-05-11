@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Laboration_1.Vy.SpelVy
 {
@@ -21,6 +13,14 @@ namespace Laboration_1.Vy.SpelVy
         public SpelVy()
         {
             InitializeComponent();
+            Loaded += SpelVy_Loaded;
+        }
+
+        private void SpelVy_Loaded(object sender, RoutedEventArgs e)
+        {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvSpel.ItemsSource);
+
+            view.SortDescriptions.Add(new SortDescription("MaxPlayers", ListSortDirection.Ascending));
         }
 
         private void btnRemoveGame_Click(object sender, RoutedEventArgs e)

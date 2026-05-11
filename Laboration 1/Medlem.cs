@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
-using System.Linq;
-
-
-namespace Laboration_1
+﻿namespace Laboration_1
 {
     public class Medlem
     {

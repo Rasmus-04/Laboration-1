@@ -1,9 +1,8 @@
-﻿using Laboration_1.Vy.AddMemberVy;
+﻿using Laboration_1.Vy.AddDeltagreWindow;
 using Laboration_1.Vy.EventDeltagareWindow;
-using Laboration_1.Vy.AddDeltagreWindow;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.ComponentModel;
 using System.Windows.Data;
 
 namespace Laboration_1.Vy.EventVy
