@@ -1,30 +1,50 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace Laboration_1
 {
-    public class Aktivitet: INotifyPropertyChanged
+    public class Aktivitet : INotifyPropertyChanged
     {
         public int Id { get; }
+
         public string Namn { get; set; }
+
         public DateTime Datum { get; set; }
+
         public Spel Spel { get; set; }
+
         public int MaxDeltagare { get; set; }
 
-        public int AntalDeltagare 
-        { 
-            get { return deltagare.Count; } 
+        public int AntalDeltagare
+        {
+            get { return deltagare.Count; }
         }
 
-        //private List<Medlem> deltagare = new List<Medlem>();
+        private ObservableCollection<Medlem> deltagare =
+            new ObservableCollection<Medlem>();
 
-        private ObservableCollection<Medlem> deltagare = new ObservableCollection<Medlem>();
-
-        public ObservableCollection<Medlem> Deltagare {  get { return deltagare; } }
-
-        public Aktivitet(string namn, DateTime datum, Spel spel, int maxDeltagare, int id = 0)
+        public ObservableCollection<Medlem> Deltagare
         {
+            get { return deltagare; }
+        }
+
+        public Aktivitet(
+            string namn,
+            DateTime datum,
+            Spel spel,
+            int maxDeltagare,
+            int id = 0)
+        {
+            if (string.IsNullOrWhiteSpace(namn))
+                throw new Exception("Aktiviteten måste ha ett namn");
+
+            if (maxDeltagare <= 0)
+                throw new Exception("Maxdeltagare måste vara större än 0");
+
             Id = id;
             Namn = namn;
             Datum = datum;
@@ -38,7 +58,7 @@ namespace Laboration_1
                 throw new Exception("Medlem redan tillagd");
 
             if (deltagare.Count >= MaxDeltagare)
-                return;
+                throw new Exception("Aktiviteten är full");
 
             deltagare.Add(medlem);
 
@@ -50,18 +70,27 @@ namespace Laboration_1
             if (deltagare.Contains(medlem))
             {
                 deltagare.Remove(medlem);
-                OnPropertyChanged(nameof(AntalDeltagare));
 
+                OnPropertyChanged(nameof(AntalDeltagare));
             }
         }
 
-
+        // LINQ - Sortering efter datum
+        public static List<Aktivitet> SortByDate(List<Aktivitet> aktiviteter)
+        {
+            return aktiviteter
+                .OrderBy(a => a.Datum)
+                .ToList();
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        protected void OnPropertyChanged(
+            [CallerMemberName] string? propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(
+                this,
+                new PropertyChangedEventArgs(propertyName));
         }
     }
 }
