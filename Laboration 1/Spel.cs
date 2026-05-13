@@ -36,17 +36,14 @@ namespace Laboration_1
         }
 
         // LINQ - Gruppering
-        public static List<IGrouping<int, Spel>> GroupGamesByMaxPlayers(
-            List<Spel> games)
+        public static List<IGrouping<int, Spel>> GroupGamesByMaxPlayers(List<Spel> games)
         {
-            return games
-                .GroupBy(g => g.MaxPlayers)
-                .ToList();
+            return games.GroupBy(g => g.MaxPlayers).ToList();
         }
 
         public override string ToString()
         {
-            return $"{Titel} ({MinPlayers}-{MaxPlayers} spelare)";
+            return $"{Titel}";
         }
     }
 }

@@ -24,8 +24,7 @@ namespace Laboration_1
             get { return deltagare.Count; }
         }
 
-        private ObservableCollection<Medlem> deltagare =
-            new ObservableCollection<Medlem>();
+        private ObservableCollection<Medlem> deltagare = new ObservableCollection<Medlem>();
 
         public ObservableCollection<Medlem> Deltagare
         {
@@ -58,7 +57,7 @@ namespace Laboration_1
                 throw new Exception("Medlem redan tillagd");
 
             if (deltagare.Count >= MaxDeltagare)
-                throw new Exception("Aktiviteten är full");
+                return;
 
             deltagare.Add(medlem);
 
@@ -85,12 +84,9 @@ namespace Laboration_1
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnPropertyChanged(
-            [CallerMemberName] string? propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
-            PropertyChanged?.Invoke(
-                this,
-                new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -48,9 +48,7 @@ namespace Laboration_1
         // LINQ - Filtrering
         public static List<Medlem> GetActiveMembers(List<Medlem> members)
         {
-            return members
-                .Where(m => m.IsActive)
-                .ToList();
+            return members.Where(m => m.IsActive).ToList();
         }
 
         public override string ToString()
